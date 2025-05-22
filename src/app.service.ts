@@ -13,7 +13,7 @@ export class AppService {
     private mailService: MailService,
     @InjectModel(User.name) private userModel: Model<User>,
   ) {}
-  @Cron('* * * * *')
+  @Cron('*/2 * * * *')
   async handleCron() {
     const users = await this.userModel.find();
     if (!users.length) return;
@@ -44,6 +44,7 @@ export class AppService {
         }
       } else {
         console.log('This user replied');
+         await this.userModel.deleteOne({ email: user.email });
       }
     });
   }
