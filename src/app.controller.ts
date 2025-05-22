@@ -1,6 +1,8 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { MailService } from './mail.service';
+import { template } from 'handlebars';
+import { first } from 'rxjs';
 
 @Controller()
 export class AppController {
@@ -17,12 +19,9 @@ export class AppController {
   async getHello(): Promise<string> {
     return await this.appService.getHello();
   }
-  @Post('send-email')
+  @Post('test')
   async sendEmail(
-    @Body('email') email: any,
-    @Body('subject') subject: any,
-    @Body('text') text: any,
   ) {
-    this.mailService.sendMail(email, subject, text);
+    this.appService.handleCron();
   }
 }

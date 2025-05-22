@@ -3,38 +3,53 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User } from './user.entity';
 import { Cron } from '@nestjs/schedule';
-import * as imaps from 'imap-simple';
 import { ImapService } from './imap.service';
-
+import * as moment from 'moment';
+import { MailService } from './mail.service';
 @Injectable()
 export class AppService {
-  constructor(private imapService:ImapService,@InjectModel(User.name) private userModel: Model<User>) {}
- // @Cron('* * * * *')
+  constructor(
+    private imapService: ImapService,
+    private mailService: MailService,
+    @InjectModel(User.name) private userModel: Model<User>,
+  ) {}
+   @Cron('* * * * *')
   async handleCron() {
     const users = await this.userModel.find();
     if (!users.length) return;
-        var delay = 4 * 24 * 3600 * 1000; // 4 days in milliseconds
-        var fourDaysAgo: any = new Date();
-        fourDaysAgo.setTime(Date.now() - delay);
-        fourDaysAgo = fourDaysAgo.toISOString();
 
-        // Correct: pass 'SINCE' and the date string as two separate array elements
-        const searchCriteria = ['ALL', ['SINCE', fourDaysAgo]];
-      
-    const inboxMessages = await this.imapService.getInboxMessages(searchCriteria);
-    console.log(users,inboxMessages)
+    const oneDayAgo = moment()
+      .subtract(1, 'days')
+      .format('DD-MMM-YYYY')
+      .toUpperCase();
+    const searchCriteria = ['ALL', ['SINCE', oneDayAgo]];
+    const fourDaysAgo = moment().subtract(0, 'days');
+
+    const inboxMessages =
+      await this.imapService.getInboxMessages(searchCriteria);
+    console.log(users, inboxMessages);
     users.forEach(async (user) => {
-       if(!inboxMessages.includes(user.email)){
-         console.log("user didnt reply")
-       }
+      if (!inboxMessages.includes(user.email)) {
+        if (moment(user.createdAt).isBefore(fourDaysAgo)) {
+          await this.mailService.sendMail(
+            'justin@interstellar-strategies.com',
+            'test',
+            'test',
+            'no-reply-template',
+            { firstName: 'no-reply-test' },
+          );
+          await this.userModel.deleteOne({ email: user.email });
+        } else {
+          console.log('The date is less than 4 days old');
+        }
+      }
     });
   }
   async createUser(user: User) {
     return await this.userModel.create(user);
   }
 
- async getHello(): Promise<string> {
-
+  async getHello(): Promise<string> {
     return 'Hello World!';
   }
 }
