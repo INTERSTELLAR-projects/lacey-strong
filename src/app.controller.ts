@@ -5,8 +5,9 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
   @Post('email-trigger')
-  emailTrigger(@Body() data: any) {
-    console.log(data);
+  emailTrigger(@Body("email") email: any) {
+    console.log(email);
+    this.appService.createUser(email);
   }
   @Get()
   getHello(): string {
