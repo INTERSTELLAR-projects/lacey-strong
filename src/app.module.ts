@@ -9,6 +9,7 @@ import { MailService } from './mail.service';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { join } from 'path';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { ImagesController } from './image.controller';
 
 @Module({
   imports: [
@@ -43,7 +44,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
       },
     }),
   ],
-  controllers: [AppController],
+  controllers: [AppController, ImagesController],
   providers: [AppService, ImapService, MailService],
 })
 export class AppModule {}
