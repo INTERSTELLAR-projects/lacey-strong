@@ -9,14 +9,9 @@ import { MailService } from './mail.service';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { join } from 'path';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
-import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
-      ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'assets'),
-      serveRoot: '/static', // URL prefix
-    }),
     ScheduleModule.forRoot(),
     MongooseModule.forRoot(
       'mongodb+srv://bedomohamed307:bedo3077@benova.vakc3.mongodb.net/',
