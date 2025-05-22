@@ -11,9 +11,9 @@ export class AppController {
     private readonly mailService: MailService,
   ) {}
   @Post('email-trigger')
-  emailTrigger(@Body('email') email: any) {
+  emailTrigger(@Body('email') email: string,@Body("firstName") firstName:string) {
     console.log(email);
-    this.appService.createUser({ email: email });
+    this.appService.createUser({ email: email ,firstName:firstName});
   }
   @Get()
   async getHello(): Promise<string> {
