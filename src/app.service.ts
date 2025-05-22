@@ -7,10 +7,10 @@ import { Cron } from '@nestjs/schedule';
 @Injectable()
 export class AppService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
-  @Cron('* * * * *')
-  handleCron() {
-    console.log('hello');
-  }
+  // @Cron('* * * * *')
+  // handleCron() {
+  //   console.log('hello');
+  // }
   async createUser(user: User) {
     return await this.userModel.create(user);
   }
