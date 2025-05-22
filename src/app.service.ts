@@ -43,6 +43,9 @@ export class AppService {
           console.log('The date is less than 4 days old');
         }
       }
+      else {
+        console.log('This user replied');
+      }
     });
   }
   async createUser(user: User) {
