@@ -7,7 +7,7 @@ export class AppController {
   @Post('email-trigger')
   emailTrigger(@Body("email") email: any) {
     console.log(email);
-    this.appService.createUser(email);
+    this.appService.createUser({email:email});
   }
   @Get()
   getHello(): string {
