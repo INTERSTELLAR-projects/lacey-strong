@@ -13,7 +13,7 @@ export class AppService {
     private mailService: MailService,
     @InjectModel(User.name) private userModel: Model<User>,
   ) {}
-   @Cron('* * * * *')
+  @Cron('* * * * *')
   async handleCron() {
     const users = await this.userModel.find();
     if (!users.length) return;
@@ -32,18 +32,17 @@ export class AppService {
       if (!inboxMessages.includes(user.email)) {
         if (moment(user.createdAt).isBefore(fourDaysAgo)) {
           await this.mailService.sendMail(
-            'justin@interstellar-strategies.com',
+            user.email,
             'test',
             'test',
             'no-reply-template',
-            { firstName: 'no-reply-test' },
+            { firstName: user.firstName },
           );
           await this.userModel.deleteOne({ email: user.email });
         } else {
           console.log('The date is less than 4 days old');
         }
-      }
-      else {
+      } else {
         console.log('This user replied');
       }
     });
