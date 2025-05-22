@@ -1,16 +1,28 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
+import { MailService } from './mail.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly mailService: MailService,
+  ) {}
   @Post('email-trigger')
-  emailTrigger(@Body("email") email: any) {
+  emailTrigger(@Body('email') email: any) {
     console.log(email);
-    this.appService.createUser({email:email});
+    this.appService.createUser({ email: email });
   }
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  async getHello(): Promise<string> {
+    return await this.appService.getHello();
+  }
+  @Post('send-email')
+  async sendEmail(
+    @Body('email') email: any,
+    @Body('subject') subject: any,
+    @Body('text') text: any,
+  ) {
+    this.mailService.sendMail(email, subject, text);
   }
 }
