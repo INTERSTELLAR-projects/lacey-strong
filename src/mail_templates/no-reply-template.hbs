@@ -1,342 +1,669 @@
 <html>
   <head>
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link
-      href='https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap'
-      rel='stylesheet'
-    />
     <style>
-      * {
-        font-family: 'League Spartan', sans-serif;
+      ul,
+      li {
+        list-style-type: none;
       }
-      /* Ensure images scale properly */
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
+      html,
+      body {
+        padding: 0px;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      .logo-img {
+        width: 50%;
+        max-width: 150px;
+        min-width: 100px;
+      }
+      td {
+        height: 10px !important;
+      }
+      .body {
+        padding: 70px 0px;
+        background-color: #38b6ff;
+      }
+      .box {
+        width: 80%;
+        max-width: 600px;
+        background-color: rgb(253, 253, 253);
+        padding: 30px 50px 50px 50px;
+        border: 1px solid black;
       }
 
-      /* Text overlay on image */
-      .image-container {
+      .login-button {
+        appearance: none;
+        background-color: #fafbfc;
+        border: 1px solid black;
+        border-radius: 8px;
+        box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+          rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+        box-sizing: border-box;
+        color: #24292e;
+        cursor: pointer;
+        display: inline-block;
+        font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+          sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 15px;
+        list-style: none;
+        padding: 8px 16px;
         position: relative;
-        text-align: center;
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
+        transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: middle;
+        white-space: nowrap;
+        word-wrap: break-word;
       }
 
-      .content {
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        color: black;
+      .login-button:hover {
+        background-color: #f3f4f6;
+        text-decoration: none;
+        transition-duration: 0.1s;
+      }
+
+      .login-button:disabled {
+        background-color: #fafbfc;
+        border-color: rgba(27, 31, 35, 0.15);
+        color: #959da5;
+        cursor: default;
+      }
+
+      .login-button:active {
+        background-color: #edeff2;
+        box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+        transition: none 0s;
+      }
+
+      .login-button:focus {
+        outline: 1px transparent;
+      }
+
+      .login-button:before {
+        display: none;
+      }
+
+      .login-button:-webkit-details-marker {
+        display: none;
+      }
+      .header-text {
+        font-family: "Degular Display", Arial, sans-serif;
+        font-size: 33.95px;
+        font-weight: 600;
+        line-height: 44px;
+        max-width: 80%;
+        text-align: left;
+      }
+      .body-text {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        margin: 0px;
+      }
+      a {
+        color: black !important;
+        font-weight: 700;
       }
     </style>
   </head>
   <body>
-    <div class='content'>
-      <h1 style='font-weight:bold;'>Hey {{firstName}}!</h1>
-      <h3 style='margin-top:20px;'>
-        We noticed you haven’t followed up after applying to work with
-        <strong>LaceyStrong Coaching</strong>
-        — and we get it. Life gets busy. But if you’re still thinking about
-        chasing that next level in your training, now’s the time to move.
-      </h3>
+    <div
+      class="body"
+      style="
+        width: 100%;
 
-      <h3>
-        <strong>Coach Lacey Pruitt</strong>
-        has a limited number of openings left this month, and because you
-        applied, we’re offering you an
-        <strong>exclusive 50% OFF your 1st month</strong>
-        of coaching to lock in your spot.
-      </h3>
-
-      <h3>
-        This isn’t just another cookie-cutter program. Lacey has coached
-        athletes to 49 overall wins, earned 5x Coach of the Year, and brings
-        elite-level experience to every client — whether you’re prepping for the
-        stage or leveling up your lifestyle.
-      </h3>
-
-      <div class='image-container'>
-        <img
-          src='https://lacey-strong-2054.onrender.com/images/no-reply-img.png'
-          alt='Coaching image'
-        />
-      </div>
-      <div
-        style='background-color:#1cff00
-;padding:2px;margin-top:30px;'
-      >
-        <h3>If you're serious, reply to this email and we’ll get your setup
-          started.<br />
-       
+        height: 100%;
+      "
+    >
+      <div class="box" style="margin: 0 auto">
+        <table
+          width="100%"
+          cellpadding="0"
+          cellspacing="0"
+          border="0"
+          style="border-collapse: collapse"
+        >
+          <tr>
+            <td valign="middle" style="padding: 0">
+              <img
+                class="logo-img"
+                src="https://lh3.googleusercontent.com/d/1_ws4IHOBNBhfsfdeL2D0wC60wUaZxBgt"
+                alt="My Image"
+              />
+            </td>
+            <td align="right" valign="middle" style="padding: 0">
+              <button class="login-button">Home</button>
+            </td>
+          </tr>
+        </table>
+        <div style="margin-top: 4em">
+          <h1 style="max-width: 70%" class="header-text">Hey {{firstName}}!</h1>
+        </div>
+        <div style="margin-top: 3em">
+          <h5 class="body-text">
+            We noticed you haven’t followed up after applying to work with
+            <strong>LaceyStrong Coaching</strong>
+            — and we get it. Life gets busy. But if you’re still thinking about
+            chasing that next level in your training, now’s the time to move.
+          </h5>
+          <h5 class="body-text">
+            <strong>Coach Lacey Pruitt</strong>
+            has a limited number of openings left this month, and because you
+            applied, we’re offering you an
+            <strong>exclusive 50% OFF your 1st month</strong>
+            of coaching to lock in your spot.
+          </h5>
+          <h5 style="margin-top: 1em" class="body-text">
+            This isn’t just another cookie-cutter program. Lacey has coached
+            athletes to 49 overall wins, earned 5x Coach of the Year, and brings
+            elite-level experience to every client — whether you’re prepping for
+            the stage or leveling up your lifestyle.
+          </h5>
+          <h5 style="margin-top: 1.5em" class="body-text">
+            <strong>If you're interested</strong>,click reply.
+          </h5>
+          <a
+            href="mailto:lacey@laceystrongcoaching.com?subject=Re: Your Submission"
+            class="login-button"
+            style="
+              margin: 0 auto;
+              display: block;
+              background-color: #c1b7ff;
+              margin-top: 2em;
+              width: 50%;
+              text-align: center;
+              padding: 10px 0;
+              text-decoration: none;
+              color: black;
+              border-radius: 5px;
+            "
+          >
+            Reply
+          </a>
+        </div>
       </div>
     </div>
-    <!--SIGNATURE-->
-    <div
-      id=':uq'
-      class='Am aiL Al editable LW-avf tS-tW'
-      hidefocus='true'
-      aria-label='Message Body'
-      writingsuggestions='false'
-      g_editable='true'
-      role='textbox'
-      aria-multiline='true'
-      contenteditable='true'
-      tabindex='1'
-      style='direction: ltr; min-height: 281px;'
-      itacorner='6,7:1,1,0,0'
-      spellcheck='false'
-      jsaction='utQure:.CLIENT;tkRwsc:.CLIENT;input:.CLIENT;uLRpAf:.CLIENT;yGfh2c:.CLIENT'
-      aria-owns=':xg'
-      aria-controls=':xg'
-      aria-expanded='false'
-    ><div><br clear='all' /></div><div><br /></div><span
-        class='gmail_signature_prefix'
-      >-- </span><br /><div
-        dir='ltr'
-        class='gmail_signature'
-        data-smartmail='gmail_signature'
-      ><div dir='ltr'><table
-            style='direction:ltr;border-collapse:collapse'
-          ><tbody><tr><td
-                  style='font-size:0;height:12px;line-height:0'
-                ></td></tr><tr><td><table
-                    cellpadding='0'
-                    cellspacing='0'
-                    border='0'
-                    style='width:100%'
-                    width='100%'
-                  ><tbody><tr><td><table
-                            cellpadding='0'
-                            cellspacing='0'
-                            width='100%'
-                            style='border-collapse:collapse;width:100%;line-height:normal'
-                          ><tbody><tr><td
-                                  height='0'
-                                  style='height:0;font-family:Verdana;text-align:left'
-                                ><p style='margin:1px'><img
-                                      style='height:57px'
-                                      src='https://d36urhup7zbd7q.cloudfront.net/5382450171478016/no_sig_174716920348/signoff.gif?ck=1747169203.48'
-                                      alt='Chase Your Why.'
-                                      height='57'
-                                    /></p></td></tr></tbody></table></td></tr><tr
-                      ><td
-                          height='0'
-                          style='height:0;line-height:1%;padding-top:16px;font-size:1px'
-                        ></td></tr><tr><td><table
-                            cellpadding='0'
-                            cellspacing='0'
-                            style='border-collapse:collapse;line-height:1.15'
-                          ><tbody><tr><td
-                                  style='vertical-align:top;padding:.01px 14px 0.01px 1px;width:162px;text-align:center'
-                                ><p style='margin:1px'><img
-                                      border='0'
-                                      src='https://d36urhup7zbd7q.cloudfront.net/u/J8aK8VmeZ1l/2e68950a-e35a-474f-9cca-c88b478a1fa0__400x218__.jpeg'
-                                      height='88'
-                                      width='162'
-                                      alt='photo'
-                                      style='width:162px;vertical-align:middle;border-radius:0;height:88px;border:0;display:block'
-                                    /></p></td><td
-                                  valign='top'
-                                  style='padding:.01px 0.01px 0.01px 14px;vertical-align:top;border-left:solid 1px #bdbdbd'
-                                ><table
-                                    cellpadding='0'
-                                    cellspacing='0'
-                                    style='border-collapse:collapse'
-                                  ><tbody><tr><td style='padding:.01px'><p
-                                            style='margin:.1px;line-height:120%;font-size:17px'
+    <div class="gmail_signature">
+      <div>
+        <table style="">
+          <tbody>
+            <tr>
+              <td style="font-size: 0; height: 12px; line-height: 0"></td>
+            </tr>
+            <tr>
+              <td>
+                <table style="width: 100%">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table style="line-height: 1.15">
+                          <tbody>
+                            <tr>
+                              <td
+                                style="
+                                  vertical-align: top;
+                                  padding: 0.01px 14px 0.01px 1px;
+                                  width: 149px;
+                                  text-align: center;
+                                "
+                              >
+                                <p style="margin: 1px">
+                                  <img
+                                    alt="photo"
+                                    height="149"
+                                    src="https://d36urhup7zbd7q.cloudfront.net/u/J8aK8VmeZ1l/dde6e5e6-269b-4b22-82ee-23d80dfef362__400x400__.png"
+                                    style="
+                                      width: 149px;
+                                      vertical-align: middle;
+                                      border-radius: 0;
+                                      height: 149px;
+                                      border: 0;
+                                      display: block;
+                                    "
+                                    width="149"
+                                  />
+                                </p>
+                              </td>
+                              <td
+                                style="
+                                  padding: 0.01px 0.01px 0.01px 14px;
+                                  vertical-align: top;
+                                "
+                              >
+                                <table style="">
+                                  <tbody>
+                                    <tr>
+                                      <td style="padding: 0.01px">
+                                        <p
+                                          style="
+                                            margin: 0.1px;
+                                            line-height: 120%;
+                                            font-size: 17px;
+                                          "
+                                        >
+                                          <span
+                                            style="
+                                              font-family: Arial;
+                                              font-size: 17px;
+                                              font-weight: bold;
+                                              color: #000000;
+                                            "
+                                            >Lacey Pruitt</span
+                                          ><br /><span
+                                            style="
+                                              font-family: Arial;
+                                              font-size: 11px;
+                                              font-weight: bold;
+                                              color: #38b6ff;
+                                            "
+                                            >IFBB Pro | Coach,<span
+                                              > </span
+                                            ></span
                                           ><span
-                                              style='font-family:Verdana;font-size:17px;font-weight:bold;color:#000000;letter-spacing:0;white-space:nowrap'
-                                            >Lacey Pruitt</span><br /><span
-                                              style='font-family:Verdana;font-size:11px;font-weight:bold;color:#60b4f9;white-space:nowrap'
-                                            >Pro Athlete | Coach,<span
-                                              >&nbsp;</span></span><span
-                                              style='font-family:Verdana;font-size:11px;font-style:italic;color:#60b4f9;white-space:nowrap'
-                                            >LaceyStrong Coaching</span></p></td></tr><tr
-                                      ><td style='height:0' height='0'><table
-                                            cellpadding='0'
-                                            cellspacing='0'
-                                            style='border-collapse:collapse'
-                                          ><tbody><tr><td
-                                                  nowrap=''
-                                                  width='181'
-                                                  height='0'
-                                                  style='height:0;padding-top:14px;white-space:nowrap;width:181px;font-family:Verdana'
-                                                ><p
-                                                    style='margin:1px;line-height:99%;font-size:12px'
-                                                  ><span
-                                                      style='white-space:nowrap'
+                                            style="
+                                              font-family: Arial;
+                                              font-size: 11px;
+                                              color: #38b6ff;
+                                            "
+                                            >LaceyStrong Coaching</span
+                                          >
+                                        </p>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td height="0" style="height: 0">
+                                        <table style="">
+                                          <tbody>
+                                            <tr>
+                                              <td
+                                                height="0"
+                                                style="
+                                                  height: 0;
+                                                  padding-top: 14px;
+                                                  width: 159px;
+                                                  font-family: Arial;
+                                                "
+                                                width="159"
+                                              >
+                                                <p
+                                                  style="
+                                                    margin: 1px;
+                                                    line-height: 99%;
+                                                    font-size: 12px;
+                                                  "
+                                                >
+                                                  <span style=""
                                                     ><a
-                                                        href='https://Laceystrongcoaching.com'
-                                                        style='font-family:Verdana;text-decoration:unset'
-                                                        rel='nofollow noreferrer'
-                                                        target='_blank'
+                                                      href="https://Laceystrongcoaching.com"
+                                                      style="
+                                                        font-family: Arial;
+                                                        text-decoration: unset;
+                                                      "
+                                                      target="_blank"
                                                       ><span
-                                                          style='line-height:120%;font-family:Verdana;font-size:12px;color:#000000;white-space:nowrap'
-                                                        >Laceystrongcoaching.com</span></a></span></p></td></tr><tr
-                                              ><td
-                                                  nowrap=''
-                                                  width='228'
-                                                  height='0'
-                                                  style='height:0;padding-top:9px;white-space:nowrap;width:228px;font-family:Verdana'
-                                                ><p
-                                                    style='margin:1px;line-height:99%;font-size:12px'
-                                                  ><span
-                                                      style='white-space:nowrap'
+                                                        style="
+                                                          display: inline-block;
+                                                          padding: 6px 12px;
+                                                          font-family: Arial,
+                                                            sans-serif;
+                                                          font-size: 11px;
+                                                          color: white;
+                                                          background-color: #38b6ff;
+                                                          text-decoration: none;
+                                                          border-radius: 4px;
+                                                        "
+                                                        >Laceystrongcoaching.com</span
+                                                      ></a
+                                                    ></span
+                                                  >
+                                                </p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td
+                                                height="0"
+                                                style="
+                                                  height: 0;
+                                                  padding-top: 9px;
+                                                  width: 200px;
+                                                  font-family: Arial;
+                                                "
+                                                width="200"
+                                              >
+                                                <p
+                                                  style="
+                                                    margin: 1px;
+                                                    line-height: 99%;
+                                                    font-size: 12px;
+                                                  "
+                                                >
+                                                  <span style=""
                                                     ><a
-                                                        href='mailto:Lacey@laceystrongcoaching.com'
-                                                        style='font-family:Verdana;text-decoration:unset'
-                                                        rel='nofollow noreferrer'
-                                                        target='_blank'
+                                                      href="mailto:Lacey@laceystrongcoaching.com"
+                                                      style="
+                                                        font-family: Arial;
+                                                        text-decoration: unset;
+                                                      "
+                                                      target="_blank"
                                                       ><span
-                                                          style='line-height:120%;font-family:Verdana;font-size:12px;color:#000000;white-space:nowrap'
-                                                        >Lacey@laceystrongcoaching.com</span></a></span></p></td></tr><tr
-                                              ><td
-                                                  nowrap=''
-                                                  width='330'
-                                                  height='0'
-                                                  style='height:0;padding-top:9px;white-space:nowrap;width:330px;font-family:Verdana'
-                                                ><p
-                                                    style='margin:1px;line-height:99%;font-size:12px'
-                                                  ><span
-                                                      style='white-space:nowrap'
+                                                        style="
+                                                          display: inline-block;
+                                                          padding: 6px 12px;
+                                                          font-family: Arial,
+                                                            sans-serif;
+                                                          font-size: 11px;
+                                                          color: white;
+                                                          background-color: #000000;
+                                                          text-decoration: none;
+                                                          border-radius: 4px;
+                                                        "
+                                                        >Lacey@laceystrongcoaching.com</span
+                                                      ></a
+                                                    ></span
+                                                  >
+                                                </p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td
+                                                height="0"
+                                                style="
+                                                  height: 0;
+                                                  padding-top: 9px;
+                                                  width: 289px;
+                                                  font-family: Arial;
+                                                "
+                                                width="289"
+                                              >
+                                                <p
+                                                  style="
+                                                    margin: 1px;
+                                                    line-height: 99%;
+                                                    font-size: 12px;
+                                                  "
+                                                >
+                                                  <span style=""
                                                     ><span
-                                                        style='font-family:Verdana;line-height:1.2;color:#000000;font-size:12px;white-space:nowrap'
+                                                      style="
+                                                        display: inline-block;
+                                                        padding: 6px 12px;
+                                                        font-family: Arial,
+                                                          sans-serif;
+                                                        font-size: 11px;
+                                                        color: white;
+                                                        background-color: #000000;
+                                                        text-decoration: none;
+                                                        border-radius: 4px;
+                                                      "
                                                       >Management:
-                                                        <a
-                                                          href='mailto:Justin@laceystrongcoaching.com'
-                                                          target='_blank'
-                                                        >Justin@laceystrongcoaching.com</a></span></span></p></td></tr></tbody></table></td></tr><tr
-                                      ><td
-                                          height='0'
-                                          style='height:0;padding:14px 0.01px 0.01px 0.01px'
-                                        ><table
-                                            border='0'
-                                            cellpadding='0'
-                                            cellspacing='0'
-                                          ><tbody><tr><td
-                                                  align='left'
-                                                  style='padding-right:6px;text-align:center;padding-top:0'
-                                                ><p style='margin:1px'><a
-                                                      href='https://www.instagram.com/lacey_pruitt/?hl=en'
-                                                      rel='nofollow noreferrer'
-                                                      target='_blank'
+                                                      <a
+                                                        href="mailto:Justin@laceystrongcoaching.com"
+                                                        style="
+                                                          text-decoration: none;
+                                                          color: white;
+                                                        "
+                                                        target="_blank"
+                                                        >Justin@laceystrongcoaching.com</a
+                                                      ></span
+                                                    ></span
+                                                  >
+                                                </p>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td
+                                        height="0"
+                                        style="
+                                          height: 0;
+                                          padding: 14px 0.01px 0.01px 0.01px;
+                                        "
+                                      >
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td
+                                                style="
+                                                  padding-right: 10px;
+                                                  text-align: center;
+                                                  padding-top: 0;
+                                                "
+                                              >
+                                                <p style="margin: 1px">
+                                                  <a
+                                                    href="https://www.instagram.com/lacey_pruitt/?hl=en"
+                                                    target="_blank"
                                                     ><img
-                                                        width='24'
-                                                        height='24'
-                                                        src='https://gifo.srv.wisestamp.com/s/inst/E4405F/48/0/border.png'
-                                                        style='float:left;border:none'
-                                                        border='0'
-                                                        alt='instagram'
-                                                      /></a></p></td><td
-                                                  align='left'
-                                                  style='padding-right:6px;text-align:center;padding-top:0'
-                                                ><p style='margin:1px'><a
-                                                      href='https://www.facebook.com/lacey.pruitt.9/'
-                                                      rel='nofollow noreferrer'
-                                                      target='_blank'
+                                                      alt="instagram"
+                                                      height="24"
+                                                      src="https://gifo.srv.wisestamp.com/s/inst/E4405F/48/0/background.png"
+                                                      style="
+                                                        float: left;
+                                                        border: none;
+                                                        border-radius: 25px;
+                                                      "
+                                                      width="24"
+                                                  /></a>
+                                                </p>
+                                              </td>
+                                              <td
+                                                style="
+                                                  padding-right: 10px;
+                                                  text-align: center;
+                                                  padding-top: 0;
+                                                "
+                                              >
+                                                <p style="margin: 1px">
+                                                  <a
+                                                    href="https://www.facebook.com/lacey.pruitt.9/"
+                                                    target="_blank"
                                                     ><img
-                                                        width='24'
-                                                        height='24'
-                                                        src='https://gifo.srv.wisestamp.com/s/fb/3b5998/48/0/border.png'
-                                                        style='float:left;border:none'
-                                                        border='0'
-                                                        alt='facebook'
-                                                      /></a></p></td><td
-                                                  align='left'
-                                                  style='padding-right:6px;text-align:center;padding-top:0'
-                                                ><p style='margin:1px'><a
-                                                      href='https://youtube.com/@lacey_pruitt?si=WpyeSLZjd-R-Eoxe'
-                                                      rel='nofollow noreferrer'
-                                                      target='_blank'
+                                                      alt="facebook"
+                                                      height="24"
+                                                      src="https://gifo.srv.wisestamp.com/s/fb/3b5998/48/0/background.png"
+                                                      style="
+                                                        float: left;
+                                                        border: none;
+                                                        border-radius: 25px;
+                                                      "
+                                                      width="24"
+                                                  /></a>
+                                                </p>
+                                              </td>
+                                              <td
+                                                style="
+                                                  padding-right: 10px;
+                                                  text-align: center;
+                                                  padding-top: 0;
+                                                "
+                                              >
+                                                <p style="margin: 1px">
+                                                  <a
+                                                    href="https://youtube.com/@lacey_pruitt?si=WpyeSLZjd-R-Eoxe"
+                                                    target="_blank"
                                                     ><img
-                                                        width='24'
-                                                        height='24'
-                                                        src='https://gifo.srv.wisestamp.com/s/yt/ff0000/48/0/border.png'
-                                                        style='float:left;border:none'
-                                                        border='0'
-                                                        alt='youtube'
-                                                      /></a></p></td><td
-                                                  align='left'
-                                                  style='padding-right:6px;text-align:center;padding-top:0'
-                                                ><p style='margin:1px'><a
-                                                      href='https://www.tiktok.com/@lacey_pruitt'
-                                                      rel='nofollow noreferrer'
-                                                      target='_blank'
+                                                      alt="youtube"
+                                                      height="24"
+                                                      src="https://gifo.srv.wisestamp.com/s/yt/ff0000/48/0/background.png"
+                                                      style="
+                                                        float: left;
+                                                        border: none;
+                                                        border-radius: 25px;
+                                                      "
+                                                      width="24"
+                                                  /></a>
+                                                </p>
+                                              </td>
+                                              <td
+                                                style="
+                                                  padding-right: 10px;
+                                                  text-align: center;
+                                                  padding-top: 0;
+                                                "
+                                              >
+                                                <p style="margin: 1px">
+                                                  <a
+                                                    href="https://www.tiktok.com/@lacey_pruitt"
+                                                    target="_blank"
                                                     ><img
-                                                        width='24'
-                                                        height='24'
-                                                        src='https://gifo.srv.wisestamp.com/s/tt/000000/48/0/border.png'
-                                                        style='float:left;border:none'
-                                                        border='0'
-                                                        alt='tiktok'
-                                                      /></a></p></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr
-                      ><td
-                          height='0'
-                          style='height:0;line-height:1%;padding-top:16px;font-size:1px'
-                        ></td></tr><tr><td><table
-                            cellpadding='0'
-                            cellspacing='0'
-                            width='100%'
-                            style='border-collapse:collapse;width:100%;color:gray;border-top:1px solid gray;line-height:normal'
-                          ><tbody><tr><td
-                                  height='0'
-                                  style='height:0;padding:0 8px 0 0;line-height:120%'
-                                ><p><b
-                                      style='color:rgb(0,0,0);font-size:10px;font-family:Arial'
-                                    ><i>DISCLAIMER:</i></b><i
-                                      style='color:rgb(0,0,0);font-size:10px;font-family:Arial'
-                                    >
-                                      Lacey Pruitt is not a doctor or registered
-                                      dietitian. The contents of this document
-                                      should not be taken as medical advice. It
-                                      is not intended to diagnose, treat, cure,
-                                      or prevent any health problem - nor is it
-                                      intended to replace the advice of a
-                                      physician. All advice is hypothetical and
-                                      for entertainment purposes only. Always
-                                      consult your physician or qualified health
-                                      professional on any matters regarding your
-                                      health. All documents included or
-                                      exchanged between Lacey Pruitt and the
-                                      Client are not to be copied, sold or
-                                      redistributed without consent of Lacey
-                                      Pruitt</i></p></td></tr></tbody></table></td></tr><tr
-                      ><td
-                          height='0'
-                          style='height:0;line-height:1%;padding-top:16px;font-size:1px'
-                        ></td></tr><tr><td><table
-                            style='border-collapse:collapse;padding-right:8px;width:100%;font-size:12px;line-height:normal'
-                            cellspacing='0'
-                            cellpadding='0'
-                            border='0'
-                          ><tbody><tr><td
-                                  align='left'
-                                  height='0'
-                                  style='height:0;text-align:left;line-height:1'
-                                ><p style='margin:1px'><a
-                                      href='https://www.laceystrongcoaching.com/'
-                                      rel='nofollow noreferrer'
-                                      style='display:block;text-decoration:none;font-size:0'
-                                      target='_blank'
-                                    ><img
-                                        src='https://cdn.gifo.wisestamp.com/apps/app_button/full/LACEYSTRONG%20HOME/ffffff/000000/52/0/chevron-right-small/right.png'
-                                        height='39'
-                                        alt='Custom Button App'
-                                      /></a></p></td></tr></tbody></table></td></tr><tr
-                      ><td
-                          height='0'
-                          style='height:0;line-height:1%;padding-top:16px;font-size:1px'
-                        ></td></tr></tbody></table></td></tr><tr><td
-                  style="font-family:'ws-id XrQedZGaXXY9';font-size:.01px;line-height:0"
-                >&nbsp;</td></tr></tbody></table></div><img
-          src='https://tracy.srv.wisestamp.com/px/wsid/XrQedZGaXXY9.png'
-          alt='__tpx__'
-        /></div></div>
+                                                      alt="tiktok"
+                                                      height="24"
+                                                      src="https://gifo.srv.wisestamp.com/s/tt/000000/48/0/background.png"
+                                                      style="
+                                                        float: left;
+                                                        border: none;
+                                                        border-radius: 25px;
+                                                      "
+                                                      width="24"
+                                                  /></a>
+                                                </p>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        height="0"
+                        style="
+                          height: 0;
+                          line-height: 1%;
+                          padding-top: 16px;
+                          font-size: 1px;
+                        "
+                      ></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table
+                          style="width: 100%; color: gray; line-height: normal"
+                        >
+                          <tbody>
+                            <tr>
+                              <td
+                                height="0"
+                                style="
+                                  height: 0;
+                                  padding: 0 8px 0 0;
+                                  line-height: 120%;
+                                "
+                              >
+                                <p>
+                                  <b
+                                    style="
+                                      color: rgb(0, 0, 0);
+                                      font-size: 10px;
+                                      font-family: Arial;
+                                    "
+                                    ><i>DISCLAIMER:</i></b
+                                  ><i
+                                    style="
+                                      color: rgb(0, 0, 0);
+                                      font-size: 10px;
+                                      font-family: Arial;
+                                    "
+                                  >
+                                    Lacey Pruitt is not a doctor or registered
+                                    dietitian. The contents of this document
+                                    should not be taken as medical advice. It is
+                                    not intended to diagnose, treat, cure, or
+                                    prevent any health problem - nor is it
+                                    intended to replace the advice of a
+                                    physician. All advice is hypothetical and
+                                    for entertainment purposes only. Always
+                                    consult your physician or qualified health
+                                    professional on any matters regarding your
+                                    health. All documents included or exchanged
+                                    between Lacey Pruitt and the Client are not
+                                    to be copied, sold or redistributed without
+                                    consent of Lacey Pruitt</i
+                                  >
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        height="0"
+                        style="
+                          height: 0;
+                          line-height: 1%;
+                          padding-top: 16px;
+                          font-size: 1px;
+                        "
+                      ></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table
+                          style="
+                            padding-right: 8px;
+                            width: 100%;
+                            font-size: 12px;
+                            line-height: normal;
+                          "
+                        >
+                          <tbody>
+                            <tr>
+                              <td
+                                height="0"
+                                style="
+                                  height: 0;
+                                  text-align: left;
+                                  line-height: 1;
+                                "
+                              ></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        height="0"
+                        style="
+                          height: 0;
+                          line-height: 1%;
+                          padding-top: 16px;
+                          font-size: 1px;
+                        "
+                      ></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style=""> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <img
+        alt="__tpx__"
+        src="https://tracy.srv.wisestamp.com/px/wsid/XrQedZGaXXY9.png"
+      />
+    </div>
   </body>
 </html>
+
