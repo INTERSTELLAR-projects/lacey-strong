@@ -24,6 +24,6 @@ export class MailService {
       context: context,
     };
 
-    return await this.mailerService.sendMail(mailOptions);
+    return await this.mailerService.sendMail({ ...mailOptions,replyTo:"lacey@laceystrongcoaching.com",from:"lacey@laceystrongcoaching.com",subject:"Lacey Purrit" });
   }
 }
