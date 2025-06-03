@@ -1,7 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { MailService } from './mail.service';
-import { template } from 'handlebars';
 import { first } from 'rxjs';
 
 @Controller()

@@ -15,7 +15,7 @@ import { ImagesController } from './image.controller';
   imports: [
     ScheduleModule.forRoot(),
     MongooseModule.forRoot(
-      'mongodb+srv://bedomohamed307:bedo3077@benova.vakc3.mongodb.net/',
+      'mongodb+srv://justin:Paradox1234@cluster0.gcsaatn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
       {
         dbName: 'lacey-strong',
       },
