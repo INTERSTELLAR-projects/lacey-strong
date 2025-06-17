@@ -11,7 +11,7 @@ export class ImapService {
       tls: true,
     },
   };
- async getInboxMessages(searchCriteria: any[]):Promise<string[]> {
+  async getInboxMessages(searchCriteria: any[]): Promise<string[]> {
     return await imaps.connect(this.config).then((connection) => {
       return connection.openBox('INBOX').then(() => {
         const fetchOptions = {
@@ -33,8 +33,8 @@ export class ImapService {
                 const match = fromStr.match(/<(.+?)>/);
                 return match ? match[1] : fromStr;
               })
-                  .filter(Boolean);
-              return senders;
+              .filter(Boolean);
+            return senders;
           });
       });
     });
