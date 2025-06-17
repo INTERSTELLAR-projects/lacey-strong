@@ -23,7 +23,7 @@ export class AppService {
       .format('DD-MMM-YYYY')
       .toUpperCase();
     const searchCriteria = ['ALL', ['SINCE', oneDayAgo]];
-    const fourDaysAgo = moment().subtract(4, 'days');
+    const fourDaysAgo = moment().subtract(7, 'days');
 
     const inboxMessages =
       await this.imapService.getInboxMessages(searchCriteria);
