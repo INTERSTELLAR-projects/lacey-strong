@@ -23,7 +23,7 @@ export class AppService {
       .format('DD-MMM-YYYY')
       .toUpperCase();
     const searchCriteria = ['ALL', ['SINCE', oneDayAgo]];
-    const fourDaysAgo = moment().subtract(7, 'days');
+    const fourDaysAgo = moment().subtract(4, 'days');
 
     const inboxMessages =
       await this.imapService.getInboxMessages(searchCriteria);
@@ -39,6 +39,11 @@ export class AppService {
             'no-reply-template',
             { firstName: user.firstName },
           );
+          await fetch('https://hooks.zapier.com/hooks/catch/22809533/uuy6dt0/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: user.email }),
+          });
           await this.userModel.deleteOne({ email: user.email });
         } else {
           console.log('DOSENT SENT ,The date is less than 4 days old');
